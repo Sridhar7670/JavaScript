@@ -1,0 +1,59 @@
+<!--Difference In Days
+Instructions
+Write a JavaScript function called dateDiffInDays that takes two dates as inputs and returns the difference in days between the two dates. The function should handle both past and future dates.
+
+Examples
+Input	Output
+dateDiffInDays("2022-03-01", "2022-03-15")	14
+dateDiffInDays("2022-03-01", "2022-03-01")	0
+dateDiffInDays("2022-03-15", "2022-03-01")	-14
+Acceptance Criteria
+The function should return the difference in days between the two dates.
+The function should accept two inputs, both of which are valid dates.
+The function should return 0 if the two dates are the same.
+The function should return a negative number if the second date is before the first date.
+The function should handle both past and future dates.
+Constraints
+The input dates will be in the format "YYYY-MM-DD".
+The input dates will be valid according to the Gregorian calendar.
+EXTRA: About Date.UTC:
+The Date.UTC method returns the number of milliseconds since January 1, 1970, 00:00:00, universal time, for a given date. It ensures consistent calculations across different time zones.
+
+Date.UTC maybe used to:
+
+Convert the input dates to the number of milliseconds since the UTC epoch.
+Calculate the difference in milliseconds between the two dates.
+Convert the difference to days by dividing by the number of milliseconds in a day.-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diff in Days</title>
+</head>
+<body>
+    <script>
+       function dateDiffInDays(date1,date2){
+        let firstDate= new Date(date1);
+        let secondDate= new Date(date2);
+
+        const diffInTime=secondDate.getTime() - firstDate.getTime();
+        
+        const diffIndays= diffInTime/(1000*3600*24);
+
+        return diffIndays;
+       }
+       document.write(dateDiffInDays('2024-01-15','2024-03-15'));
+//months in js start from 0-11
+
+// Examples
+// console.log(dateDiffInDays("2022-03-01", "2022-03-15")); // 14
+// console.log(dateDiffInDays("2022-03-01", "2022-03-01")); // 0
+// console.log(dateDiffInDays("2022-03-15", "2022-03-01")); // -14
+
+    </script>
+</body>
+</html>

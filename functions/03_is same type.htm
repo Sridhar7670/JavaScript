@@ -1,0 +1,55 @@
+
+<!-- js code to check if the input values are of same type and same class or not -->
+
+<!--Implement the function isSameType(value1, value2) 
+that takes two values as input and returns true if the type of the two values
+ is the same and false otherwise. If one of the values is NaN, 
+  function should return true if and only if both values are NaN.
+
+Examples
+isSameType(1, 3); // true
+isSameType("hey", "hello"); // true
+isSameType(NaN, NaN); // true
+isSameType("3", 3); // false
+
+Acceptance Criteria
+The function should return true if both values are of the same type (number, string, or NaN).
+The function should return false if both values are not of the same type.
+The function should return true if both values are NaN.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <script >
+
+        // do not change the code below.
+        let value1 = prompt("Enter Start of the Range.");
+        let value2 = prompt("Enter End Of the Range.");
+         alert(isSameType(value1, value2));
+        
+       function isSameType(value1, value2) {
+    if (Number.isNaN(value1) && Number.isNaN(value2)) {
+        return true;
+    }
+    if (Number.isNaN(value1) || Number.isNaN(value2)) {
+        return false;
+    }
+    if (typeof value1 === typeof value2) {
+        return true;
+    }
+    return false;
+}
+console.log(isSameType(1, 3)); // true
+console.log(isSameType("hey", "hello")); // true
+console.log(isSameType(NaN, NaN)); // true
+console.log(isSameType("3", 3)); // false
+        </script>
+</body>
+</html>
+
+
+

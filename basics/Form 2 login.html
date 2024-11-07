@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Form Login</title>
+</head>
+<body>
+<!-- 
+
+here is the question :
+Acceptance Criteria:
+The input fields created using the <input> tag should have the following name attributes: First Name, Last Name, Phone Number, and Email ID.
+Upon clicking the Submit button, the browser should show an alert containing the form information with spaces between the labels and values.
+Examples:
+First Name	Last Name	Phone Number	Email ID
+John	Doe	1234567890	john.doe@example.com
+Alert Output: First Name: John Last Name: Doe Phone Number: 1234567890 Email ID: john.doe@example.com
+ -->
+    <label>First Name:</label><input type="text" id="name" name="FirstName"><br>
+    <label>Last Name:</label><input type="text" id="lastname" name="LastName"><br>
+    <label>Phone Number:</label><input type="number" id="phone" name="PhoneNumber"><br>
+    <label>Email Id:</label><input type="email" id="mailid" name="EmailID"><br>
+    <button onclick="dialogueBox()">Submit</button>
+    
+    
+   <script>
+    function dialogueBox() {
+        //get the values from the input field 
+        const firstName = document.getElementById("name").value;
+        console.log("First Name: ", firstName);  
+
+        const LastName = document.getElementById("lastname").value;
+        console.log("Last Name: ", LastName);
+
+        const phoneNumber = document.getElementById("phone").value;
+        console.log("Phone Number: ", phoneNumber);
+
+        const emailId = document.getElementById("mailid").value;
+        console.log("Email ID: ", emailId);
+
+        const message= `First Name: ${firstName} \n Last Name: ${LastName} \n Phone Number: ${phoneNumber} \n Email ID: ${emailId}`;
+        alert(message);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    Contains Property
+    You are given a JSON Object with key and value pairs. You are also given a key x. 
+    Complete the JavaScript function containsProp() which returns true if key x is present 
+    in given JSON Object, else return false.
+    
+    Input Format
+    First line contains a number n, which is the number of key-value pairs in our object
+    
+    Next n lines contains two space separated string keyx valx
+    
+    Last line contains the key x
+    
+    Output Format
+    Print true or false according to the question
+    
+    Example 1
+    Input
+    
+    3
+    name Virat
+    country India
+    role Batsman
+    role
+    Output
+    
+    true
+    Explanation
+    
+    The JSON object is:
+    
+    {
+        "name": "Virat",
+        "country": "India",
+        "role": "Batsman"
+    }
+    Thus the keys to check is "role", which is present in this object, so we print true.
+    
+    Example 2
+    Input
+    
+    4
+    name Dinesh
+    grade A
+    attendence 90
+    rollnumber
+    Output
+    
+    false
+    Constraints
+    1 <= n <= 100
+     -->
+
+    <script>
+        
+let n = parseInt(prompt("Enter number of key-value pairs: "));
+let data = {};
+
+for (let i = 0; i < n; i++) {
+  let [key, value] = prompt("Enter key and value: ").split("  ");
+  data[key] = value;
+}
+
+let key_to_check = prompt("Enter key to check: ");
+
+console.log(key_to_check in data);
+
+    </script>
+</body>
+</html>

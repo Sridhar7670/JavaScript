@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrays and objects </title>
+</head>
+<body>
+   <script>
+   var  arr=[1,2,3, , 45,];
+
+   //console.log(arr.length);
+    console.log(arr);
+    console.log(arr[0]);
+    console.log(arr[1]);
+
+    arr[1]=44;   //to overide the values in an array 
+    console.log(arr);
+
+    //add value from the last 
+    arr.push(98);   //adding many values arr.push(98,87,628,82);
+    console.log("the elemrnt which is added from the last is: "+arr);
+
+    //add value from the front 
+    arr.unshift(12);   // adding many values from the front arr.unshift(56,23,45,87);
+    console.log("the array after adding new element is "+arr);
+    console.log("<br>")
+
+    //removing elemnet from the back
+    console.log("the original arr is;"+arr);
+    arr.pop();
+    console.log(arr);
+    console.log("<br>"+"the original array is"+arr)
+    //removing element from the front 
+    arr.shift();
+    console.log(arr)
+
+    //js doesnt throw errors 
+    var arr =[3,5,8,99];
+    console.log(arr[3]);
+    console.log(arr[10]);  // says undefined doesnt throw error
+    console.log(arr[-4]); //sasys undefined as negatuive index doesnt exist in js
+
+    let  arr1 =[1,2];
+    arr1.pop();
+    arr1.pop();
+    console.log(arr1); //"there exist no value as 2 element are poed out"
+
+    //splice operation in arrays this is best was rater than push pop.shift ,unshift 
+    //splice is declared as arr.splice(start index,deleted count,added elemnts)
+    var arr = [1,2,34,,5,6,7,8,9];
+    arr.splice(2,1)   //in the second index of the array one vakue is deleted 
+    console.log(arr)   //the value at second index i.e 34 is poped out 
+    arr.splice(5,1,2222) // the value at 5th index is erased and  by one and is added by 2222
+    console.log(arr);
+
+    arr.splice(1,3) //deleted three elemts from 2nd value 
+    console.log(arr);
+
+    arr.splice(3,0,98,77,87,73,873,33,32) // now this adds values from the 3 rd 
+    //index all the vales are added at the 3rd index 
+    console.log(arr);
+
+    arr.splice(3);  //removes all the elements after 3rd index 
+    console.log(arr);
+
+    //slice : returns shallow copy of a portion of arrays without modifying the original array 
+    var arr =[1,2,3,4,8,9,5,0]
+    console.log(arr);
+    y=arr.slice(1);  //takes the part starting form index 1 and doesnt effect original arr
+    console.log(y);  
+   y= arr.slice(2,4)  //takes the part from arr till (n-1) i.e from 2nd index to 3 rd index are printed 
+    console.log(y);
+    console.log("using for loop")
+//to acess elemnts in array using for loop
+var arr5= [1,2,3,4,5,6],i;
+for(i=0;i<arr5.length;i++){
+    console.log(i,arr5[i]);
+}
+console.log("using for in loop")
+//method to reduce conditions in for loop  (for in loop)
+for (let i in arr5){
+    console.log(i,arr5[i]);
+}
+
+console.log("using for of loop")
+//method 3 for of loop in arr
+// for( i of arr5){
+//     console.log(i)    //vales of the arrr i,r elements no index 
+// }
+console.log("the vales and indexs are ")
+for (i of arr5){             //starts from 1 and itterates till n+1 index the worst mehtod according to me
+    console.log(i,arr5[i]);  
+//output
+//1 2
+//  2 3
+//  3 4
+//  4 5
+//  5 6
+//  6 undefined
+}
+console.log("the new arr")
+ var arr=[1,8,"true","helo"];  //starts from 1 and itterates till n+1 index the worst mehtod according to me 
+ var i=0;
+ for (i of arr){
+    console.log(i,arr[i])
+ }
+
+
+
+
+    //OBJECTS 
+    console.log("here is a brief on objects ")
+    var obj ={name:'sridhar',age:'29',phoneNumber:'7670893965'};
+    console.log(obj);  // obj is printed of total
+    console.log(obj.name);  //method 1 to acess object files
+    console.log(obj["age"]); //method 2 to acess object files 
+
+    //to override the things in an object 
+    obj.name='sridhar reddy',obj.age='18';
+    console.log(obj);
+   
+    //to delete the things in a object 
+    delete obj.age;
+    console.log(obj);
+
+//print elements in object  
+let keys= Object.keys(obj);  //Object is a constructor which retuens keys in an array
+console.log(keys+"th ekeys are ")
+console.log(keys[0]);   //method to extract keys 
+console.log(keys[1]);  // keys are extracted 
+
+//method2 to extreact elements in an object 
+console.log(obj[keys[0]]);     // values inside the keys are extracted 
+console.log(obj[keys[1]]); 
+
+console.log(keys[0],obj[keys[0]]);
+console.log(keys[1],obj[keys[1]]);
+console.log("the loop using for loop")
+//method toe xtract using for loop
+for(i=0;i<keys.length;i++){
+    console.log(keys[i],obj[keys[i]])
+}
+
+//method 2 (for in loop)
+console.log("method 2 to extract elements and keys")
+for( i in obj){
+    console.log(i,obj[i]);
+}
+      
+      
+//arrays looping then with (for of loop)
+//index starts from 1 and only values are printed by default and vales are till only (n-1)
+
+      arr6=[1,2,3]
+      for (i of arr6){
+        console.log(i,arr6[i])
+      }
+      
+      
+      
+      </script>
+</body>
+</html>

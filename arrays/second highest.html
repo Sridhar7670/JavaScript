@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+    You are given an array arr, and your task is to find the second-highest element of this arr.
+
+Instructions
+Complete the function secondHighest() in the main.html file within the designated area. No other changes are expected to be made in any other file.
+If arr is empty or has only 1 element or all the elements are the same, then return -Infinity.
+Examples
+Input	Output
+[5, 1, 2, 3, 4]	        4
+[-1, -2, -3, -4, -5]	-2
+[]	-Infinity
+[1]	-Infinity
+[1, 1, 1, 1, 1]	-Infinity
+Constraints
+The input array will contain integers.
+The length of the input array will not exceed 10^5.
+ -->
+<script>
+//     function secondHighest(arr){
+
+// // Sort the array in descending order
+// const secound = [...arr].sort((a,b) => b - a);
+
+// // Check if all elements are the same
+// if(arr.every((val, _) => val === arr[0])){
+//     return "-Infinity";
+// }
+
+// // If the array has one or no elements, return "-Infinity"
+// if(secound.length <= 1) {
+//     return "-Infinity";
+// } else {
+//     // Otherwise, return the second highest number
+//     return secound[1];
+// }
+// }
+
+//METHOD-2
+function secondHighest(arr){
+    // Check if the array length is less than 2 or all elements are the same
+    if(arr.length < 2 || arr.every((val, _, arr) => val === arr[0])){
+        return Number.NEGATIVE_INFINITY;  // Use Number.NEGATIVE_INFINITY  
+    }
+
+    let highest = Number.NEGATIVE_INFINITY;
+    let secondHighest = Number.NEGATIVE_INFINITY;
+
+    for(let i = 0; i < arr.length; i++){   
+        if(arr[i] > highest){     
+            secondHighest = highest;       
+            highest = arr[i];
+        } 
+        else if(arr[i] > secondHighest && arr[i] < highest){
+            secondHighest = arr[i];
+        }
+    }
+
+    return secondHighest;
+}
+    console.log(secondHighest([5,1,2,3,4]));  
+    console.log(secondHighest([-1,-2,-3,-4,-5]));
+    console.log(secondHighest([1, 1, 1, 1, 1]));
+   console.log(secondHighest([]));
+   console.log(secondHighest([1]));
+   
+   
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+    Develop a JavaScript program to create a simple increment counter triggered by a button click. The webpage should have the following structure:
+    Acceptance Criteria:
+    Element                 	Attribute/ID
+    Counter Paragraph (p tag)	counter
+    Counter's Initial Value	       0
+    Increment Button	        incrementBtn
+
+    Clicking the button should display an alert with the un-incremented value.	
+ -->
+
+    <p class="counter-para" id="counter">0</p>
+    <button class="incrementBtn" id="incrementBtn" onclick="increment()">Increment</button>
+    
+    <script>
+        //method 1 avoiding onclick in html
+        // let counter = 0;
+
+        // const increment = () => {
+        //     const previousValue = counter;
+        //     counter++;
+        //     document.getElementById("counter").innerHTML = counter;
+        //     alert( previousValue);
+        // };
+
+        // document.getElementById("incrementBtn").addEventListener('click', increment);
+
+        //avoiding addeventlistner
+        let counter=0;
+
+        function increment(){
+            const previousValue =counter;
+            counter++;
+            document.getElementById("counter").innerHTML=counter;
+            alert(previousValue);
+        }
+    </script>
+</body>
+</html>

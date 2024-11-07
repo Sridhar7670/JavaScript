@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+// Object Property Checker
+// Instructions
+// Write a JavaScript function called hasKey that takes a key as an input and checks 
+//if the global object sampleObject contains that key. The function should return true if the object contains
+// the key, and false otherwise.
+
+// The global object sampleObject is undefined now take the object of your own
+
+// Examples
+// Input	Output
+// hasKey("red")	true
+// hasKey("blue")	false
+// hasKey("white")	true
+// Acceptance Criteria
+// The function should return true if the global object sampleObject contains the key passed as an argument, and false otherwise.
+// The function should accept a single input, which is a valid key.
+// The function should not modify the sampleObject object or any of its properties.
+// Constraints
+// The input key will be a valid string containing alphanumeric characters and may have a maximum length of 100 characters.
+
+const sampleObject = { red: "#FF0000", green: "#00FF00", white: "#FFFFFF" };
+
+
+function hasKeyOrValue(keyOrValue) {
+  // Check if the key exists
+  if(keyOrValue in sampleObject){
+      return  true;
+  }
+  for(let x in sampleObject){
+      if(sampleObject[x]==keyOrValue)
+      return true;
+  }
+    
+ return false;
+    
+}
+
+// Do not change the code below
+const input = prompt("Enter a key or value.");
+alert(hasKeyOrValue(input));
+
+
+    </script>
+</body>
+</html>

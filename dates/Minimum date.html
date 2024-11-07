@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+   function minDate(dates) {
+   const dateObjects= dates.map((date)=>new Date(date));
+   //this uses dates in string format to convert into exact dates 
+   //op of dateObjects is elobrated form of date
+   console.log(dateObjects)
+
+   const MinDatesObject= new Date(Math.min(...dateObjects));
+   //return the nearest date i.e the minimum date 
+   console.log(MinDatesObject)
+
+   //formating the date back to required format
+   const year = MinDatesObject.getFullYear(); //console.log(year) 2023
+   const Month = String(MinDatesObject.getMonth()+1).padStart(2,'0');// console.log(Month) 03
+   const date = String(MinDatesObject.getDate()).padStart(2,'0'); //console.log(date) 01
+	return `${year}/${Month}/${date}`
+}
+   console.log(minDate(["2023/03/01", "2023/03/02", "2023/03/03"]));
+   </script> 
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+    Date or Not
+    Instructions
+    Write a JavaScript function called isDate that takes an input and returns true if the input is a valid date object or a string that can be parsed into a valid date, and false otherwise.
+
+    Examples
+    Input	Output
+    isDate(new Date())	true
+    isDate("2023-08-11")	true
+    isDate("not a date")	false
+    Acceptance Criteria
+    The function should return true if the input is a valid date object or a string that can be parsed into a valid date.
+    The function should return false if the input cannot be parsed into a valid date.
+    The function should work for different types of input, including string, number, and object.
+    Constraints
+    The input can be a date object, a valid date string, a timestamp, or any other type of input.
+-->
+    <script>
+
+var isDate = function (input) {
+  //   write your code here
+  const date= new Date(input);
+  return !isNaN(date);
+};
+
+// Do not change the code below.
+const input = prompt("Enter Date.");
+alert(isDate(input));
+    </script>
+</body>
+</html>

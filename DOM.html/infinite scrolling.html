@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #infi-list {
+  width: 200px;
+  height: 300px;
+  overflow: auto;
+
+  margin: 30px;
+  padding: 20px;
+  border: 10px solid black;
+}
+li {
+  padding: 10px;
+  list-style-type: none;
+}
+li:hover {
+  background: #ccc;
+}
+
+</style>
+<body>
+    <!-- Infinite Scrolling
+Instructions
+You are already given the HTML and CSS of the project, fill in the JavaScript code in script.js to make it work.
+
+Add about 10 list items to the list by default.
+
+When the user reaches the end of list, 2 more list items must be added automatically using JavaScript.
+ -->
+ <h2>Infinite Scroll</h2>
+    <main>
+      <ol id="infi-list">
+		  <li>Item 1</li>
+		  <li>Item 2</li>
+		  <li>Item 3</li>
+		  <li>Item 4</li>
+		  <li>Item 5</li>
+		  <li>Item 6</li>
+		  <li>Item 7</li>
+		  <li>Item 8</li>
+		  <li>Item 9</li>
+		  <li>Item 10</li>
+		  
+	  </ol>
+    </main>
+</body>
+<script>
+    const infiList = document.getElementById("infi-list");
+
+// Function to add new list items
+function addListItems(numItems = 2) {
+  const currentCount = infiList.children.length;
+  for (let i = 1; i <= numItems; i++) {
+    const li = document.createElement("li");
+    li.textContent = `Item ${currentCount + i}`;
+    infiList.appendChild(li);
+  }
+}
+
+// Initial load of list items
+ addListItems(10);
+
+// Event listener for infinite scrolling
+infiList.addEventListener("scroll", () => {
+  if (infiList.scrollTop + infiList.clientHeight >= infiList.scrollHeight) {
+    // User reached the end of the list, add more items
+    addListItems(2);
+  }
+});
+
+</script>
+</html>

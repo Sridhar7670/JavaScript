@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+    Making Change
+Create a function makeChange that takes an amount of monetary change
+ in cents (e.g. 47) and breaks down the most efficient way that change 
+ can be made using USD quarters, dimes, nickels, and pennies.
+  Your function should return an object with the following properties:
+
+q: the number of quarters needed
+d: the number of dimes needed
+n: the number of nickels needed
+p: the number of pennies needed
+The values for each coin are as follows:
+
+Penny: 0.01
+Nickel: 0.05
+Dime: 0.10
+Quarter: 0.25
+Note that the amount given will always be less than 100 and more than 0.
+
+Examples
+Input	Output
+makeChange(47)	{ "q": 1, "d": 2, "n": 0, "p": 2 }
+makeChange(24)	{ "q": 0, "d": 2, "n": 0, "p": 4 }
+Constraints
+The input amount will always be a positive integer less than 100 and greater than 0.
+Acceptance Criteria
+The function should return an object with the properties 'q', 'd', 'n', and 'p'.
+The object should represent the most efficient way to make change using USD quarters, dimes, nickels, and pennies.
+Additional information to know
+The knowledge of math.floor can be used in this.
+Try getting the remainders and quotients using % / operators.
+ -->
+<script>
+   
+
+const makeChange = (amount) => {
+  // your code here
+
+        if((typeof amount==="number")&&(amount >0 && amount<100))
+            {
+                const change={ q: 0, d: 0, n: 0, p: 0 }; 
+
+                change.q=Math.floor(amount/25);
+                amount %= 25                                  // long form amount=amount%25;
+
+                change.d=Math.floor(amount/10);
+                amount %=10;
+
+                change.n=Math.floor(amount/5);
+                amount %=5;
+
+                change.p=amount;
+            
+                return change;
+            }
+            else{console.log("Enter the correct amount")}
+};
+
+// Do not the change the code below
+// const amount = prompt("Enter amount: ");
+// alert(JSON.stringify(makeChange(amount)));
+
+// Examples:
+console.log(makeChange(47)); // Output: { q: 1, d: 2, n: 0, p: 2 }
+console.log(makeChange(24)); // Output: { q: 0, d: 2, n: 0, p: 4 }
+console.log(makeChange(56));
+</script>
+</body>
+</html>

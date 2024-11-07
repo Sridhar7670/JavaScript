@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .progress-container{
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        margin-bottom: 20px;
+        margin:0 auto;
+    }
+    .circle{
+        width:30px;
+        height:30px;
+        border:2px solid #3498db;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        color:#decdcd;
+        position: relative;
+
+    }
+    .circle.active {
+      border-color: #3498db;
+      background-color: #3498db;
+      color: white;
+}
+.button{
+    display: block;
+    margin: 1rem 0 1rem 30%;
+}
+#prev,#next {
+  padding: 10px 20px;
+  margin-left:7rem;
+  background-color: #3498db;
+  border-radius: 15%;
+}
+.circle::before {
+    content: '';
+    position: absolute;
+    width:150px; /* adjust this value based on your design */
+    height: 2px;
+    background: #ddd;
+    top: 50%;
+    right: 30px; /* adjust this value based on your design */
+    z-index: -1;
+}
+#circle-1::before {
+    background: none;
+}
+.circle.active::before {
+    background: #3498db;
+}
+</style>
+<body>
+<!--
+     Progress Bar
+Create a progress bar using html, css and javascript.
+The webpage should include 5 circles with class .circle and two buttons next with id next and previous with id prev.
+Initially only first circle should have active class.
+As the user presses the next button an active class is added to the next circle.
+As the user presses the previous button an active class is removed from the current circle.
+Initially the previous button should be disabled.
+When all the circles become active then next button becomes disabled.
+The progress bar should look like this:
+
+image
+
+-Ids for every circle will be circle-1, circle-2, circle-3... and so on.
+ -->
+
+ <div class="progress-container">
+    <div class="circle active" id="circle-1">1</div>
+    <div class="circle" id="circle-2">2</div>
+    <div class="circle" id="circle-3">3</div>
+    <div class="circle" id="circle-4">4</div>
+    <div class="circle"id="circle-5">5</div>
+ </div>
+ <div class="button">
+    <button id="prev">Prev</button>
+    <button id="next">Next</button>
+
+    <script>
+        const circles = document.querySelectorAll('.circle');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+
+let currentActive = 1;
+
+nextButton.addEventListener('click', () => {
+  currentActive++;
+
+  if (currentActive > circles.length) {
+    currentActive = circles.length;
+  }
+
+  update();
+});
+
+prevButton.addEventListener('click', () => {
+  currentActive--;
+
+  if (currentActive < 1) {
+    currentActive = 1;
+  }
+
+  update();
+});
+
+function update() {
+  circles.forEach((circle, idx) => {
+    if (idx < currentActive) {
+      circle.classList.add('active');
+    } else {
+      circle.classList.remove('active');
+    }
+  });
+
+  if (currentActive === 1) {
+    prevButton.disabled = true;
+  } else if (currentActive === circles.length) {
+    nextButton.disabled = true;
+  } else {
+    prevButton.disabled = false;
+    nextButton.disabled = false;
+  }
+}
+
+    </script>
+ </div>
+</body>
+</html>

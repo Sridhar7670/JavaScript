@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--
+Number Of Books Read
+
+Instructions
+Write a JavaScript function called numberOfBooksRead that returns the number of books that have been read from the given object named library.
+
+Each book object in the array has the following properties:
+
+author (string): the name of the book author
+title (string): the title of the book
+readingStatus (boolean): indicates whether the book has been read (true) or not (false)
+The function should count the number of books in the array that have been marked as read (i.e., those with a readingStatus of true) and return that count as a result.
+
+Examples
+Input	Output
+Given Library	2
+Acceptance Criteria
+The function should accurately count and return the number of books that have been read from the given object.
+The function should work with the given structure of the library object and not modify it.
+Constraints
+The library object will contain at most 1000 books.
+ 
+-->
+<script>
+  const library = [
+  {
+    author: "Bill Gates",
+    title: "The Road Ahead",
+    readingStatus: true,
+  },
+  {
+    author: "Steve Jobs",
+    title: "Walter Isaacson",
+    readingStatus: true,
+  },
+   {
+    author: "Steve Jobs",
+    title: "Walter Isaacson",
+    readingStatus: true,
+  },
+  {
+    author: "Suzanne Collins",
+    title: "Mockingjay: The Final Book of The Hunger Games",
+    readingStatus: false,
+  },
+];
+
+  const numberOfBooksRead = () => {
+    // write your code here
+  let result=0;
+  for(let x of library){
+      if(x.readingStatus===true){
+      result++;
+    }
+
+  };
+  return result;
+  }
+	
+console.log(numberOfBooksRead());
+</script>
+</body>
+</html>

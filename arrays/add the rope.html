@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--    
+    Min Cost Ropes
+Instructions
+There are given N ropes of different lengths, and we need to connect these 
+ropes into one rope. The cost to connect two ropes is equal to the sum of 
+their lengths. The task is to connect the ropes with the minimum cost. You
+need to write a function mincost, which takes an array arr containing the
+lengths of the ropes and returns the minimum cost as an Integer.
+
+Examples
+            Input	Output
+            mincost([4, 3, 2, 6])	29  
+            mincost([1, 2, 3, 4, 5])	33
+Acceptance Criteria
+The function must accept an array of integers representing the lengths of the ropes. The length of the array is within the range [1, 10^3], and each element is within the range [1, 10^4].
+The function must return an integer representing the minimum cost to connect all the ropes.
+Constraints
+The length of the array will be within the range [1, 10^3].
+Each element of the array will be within the range [1, 10^4].
+Additional information to know
+- The knowledge of sort function will be useful here 
+-->
+<script>
+    function mincost(arr){
+     const minheap=[...arr].sort((a,b)=>a-b);
+
+     let totalCost=0;
+
+     while(minheap.length>1){
+        let first = minheap.shift();
+        let second = minheap.shift();
+        let cost = first + second;
+        totalCost += cost;
+        
+        minheap.push(cost);
+        minheap.sort((a,b)=>a-b);
+     }
+     return totalCost;
+
+    }
+    console.log(mincost([9,7,5,4]));  
+</script>
+</body>
+</html>
