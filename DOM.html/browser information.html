@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--
+Browser Information
+Instructions
+Create a program that uses the navigator object to detect the user's browser and display a message on the page informing the user of their browser name and version.
+
+The message should be added inside a div element with the id browser-info.
+
+Acceptance Criteria
+There should be a div element with the id browser-info inside which you will add the Browser Information using JavaScript.
+You should display the information in the format as given above, i.e., "You are using " + browserName + " version " + version.
+Constraints
+The browser name and version should be retrieved from the navigator object.
+Extra Information: Browser Information Program:
+This program uses the navigator object to detect the user's browser name and version, displaying the information on the webpage.
+
+navigator.userAgent: Represents the user agent string of the browser.
+navigator.appName: Provides the name of the browser.
+navigator.appVersion: Provides the version of the browser.
+ -->
+<div id="browser-info"></div>
+
+  <script>
+    function getBrowserInfo() {
+      const userAgent = navigator.userAgent;
+      const browserName = navigator.appName;
+      const fullVersion = navigator.appVersion;
+      let browserVersion = '';
+    
+
+      // Extract the browser version from the user agent string
+      const versionMatch = userAgent.match(/(version|chrome|firefox|msie|safari|opera|edge)[\/\s]([\d.]+)/i);
+      if (versionMatch) {
+        browserVersion = versionMatch[2];
+      } else {
+        browserVersion = fullVersion.split(' ')[0];
+      }
+
+      return `You are using ${browserName} version ${browserVersion}`;
+    }
+
+    document.getElementById('browser-info').innerText = getBrowserInfo();
+  </script>
+
+ </script>
+</body>
+</html>
