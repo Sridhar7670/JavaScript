@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <!--
+     Capitalise Name
+You are given an HTML file, which gives you an input field to enter your name:
+
+Your task is that whatever content you type in this field, the content turns to uppercase whenever you leave the input field.
+
+Instructions
+Do not change the id fname of the input tag, this may result in failure of the testcase.
+Implement a function that converts the content of the input field to uppercase when the input field loses focus.
+Examples
+Input	Output
+Type "John Doe" and leave the input field	"JOHN DOE"
+Type "jOhN dOe" and leave the input field	"JOHN DOE"
+Acceptance Criteria
+The input field must have the id fname.
+The content of the input field must be converted to uppercase 
+when the input field loses focus.
+ -->
+    Enter your name: <input type="text" id="fname">
+	
+	<script type="text/javascript" >
+        (()=>{
+            let fname = document.getElementById("fname");
+		    fname.addEventListener("blur",()=>{
+            fname.value= fname.value.toUpperCase();
+            // console.log(fname);
+            // console.log(fname.value);
+        });
+        })();
+	</script>
+  </body>
+</html>
+
