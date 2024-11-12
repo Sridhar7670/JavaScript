@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Enter Metaverse
+
+    Implement a JavaScript program that dynamically updates the content in a 
+    <p> tag upon clicking a button. The initial string "Enter the Metaverse" 
+    should change to "Entered Metaverse" on button click. The webpage should resemble the following:
+Acceptance Criteria:
+Element	                Attribute/ID
+    Status Paragraph (p tag)	status
+    Initial Text	"Enter the Metaverse"
+    Enter Button	enterBtn
+    Upon button click, change the text to "Entered Metaverse" enclosed in an <h1> tag.
+        -->
+        
+    </body>
+<script>
+    let div= document.createElement("div");
+    div.id = "status"; // Assigning id to the div
+    div.innerHTML="<p>Enter the Metaverse</p>";
+    document.body.append(div);
+
+    let button= document.createElement("button");
+    button.id = "enterBtn"; // Assigning id to the button
+    button.innerText="Enter";
+    document.body.append(button);
+
+    button.addEventListener("click",()=>{  div.innerHTML="<h1>Entered Metaverse</h1>"});
+   
+</script>
+</html>

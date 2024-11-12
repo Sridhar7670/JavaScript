@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="margin:30px;">
+
+<!-- 
+Form Login
+
+You are expected to make changes only in the script.js file.
+Complete the function getFormvalue() which handles the submission of the form.
+Print the first and last name of the user using alert().
+Examples:
+First Name	Last Name	Output
+John	Doe	John Doe
+Alice	Smith	Alice Smith
+Testing:
+Test Case - Submit Form with First and Last Name:
+Input:
+First Name: John
+Last Name: Doe
+Action: Click the Submit button
+Expected Output: An alert displaying "John Doe".
+Test Case - Submit Form with First, Middle, and Last Name:
+Input:
+First Name: John
+Last Name: Mark Doe
+Action: Click the Submit button
+Expected Output: An alert displaying "John Mark Doe".
+In JavaScript, event.preventDefault() is a method that’s often used in event handling. When called, it stops the default action of an event from happening.
+
+For example, let’s consider a form submission event. By default, when you submit a form in a web page, the page gets refreshed or redirected to the action URL mentioned in the form’s action attribute. If you want to prevent this default behavior, you can use event.preventDefault() inside the event handler function.
+
+In your case, you’re calling a function on form submission and showing an alert box with the form values. But since the default form submission event is not prevented, the page is getting refreshed before you see the alert box. This is why you need to use event.preventDefault().
+-->
+
+
+    <form id="form1" onsubmit="getFormvalue(event)">
+        First name: <input type="text" name="fname"><br>
+        Last name: <input type="text" name="lname"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+<script>
+    function getFormvalue(event) {
+        event.preventDefault(); // Prevent form submission
+
+        let input = document.querySelectorAll("input[type='text']");
+        let firstName = input[0].value;
+        let lastName = input[1].value;
+
+        alert(`${firstName} ${lastName}`);
+    }
+
+//  In JavaScript, event.preventDefault() is a method that’s often used in event handling. 
+// When called, it stops the default action of an event from happening.
+
+// For example, let’s consider a form submission event. By default, when you submit a form in a web page, the page gets refreshed or redirected to the action URL mentioned in the form’s action attribute. If you want to prevent this default behavior, you can use event.preventDefault() inside the event handler function.
+
+// In your case, you’re calling a function on form submission and showing an alert box with the form values. But since the default form submission event is not prevented, the page is getting refreshed before you see the alert box. This is why you need to use event.preventDefault().
+
+</script>
+</html>
