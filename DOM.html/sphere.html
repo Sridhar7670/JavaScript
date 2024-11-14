@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Input radius value and get the volume of a sphere.</p>
+    <form action="" method="post" id="MyForm" onsubmit="return volume_sphere()">
+        <label for="radius">Radius</label>
+        <input type="text" name="radius" id="radius" required>
+        <label for="volume">Volume</label>
+        <input type="text" name="volume" id="volume" readonly>
+        <input type="submit" value="Calculate" id="submit">   
+    </form>
+
+    <script>
+        function volume_sphere() {
+            // Retrieve the radius value entered by the user
+            let radius = document.querySelector("#radius").value;
+            let volume = document.querySelector("#volume");
+
+            // Validate the input to ensure the radius is a non-negative number
+            let r = parseFloat(radius);
+            if (isNaN(r) || r < 0) {
+                volume.value = 'NaN';
+                return false; // Prevent form submission
+            }
+
+            // Calculate the volume of the sphere using the formula: V = 4/3 * π * r^3
+            let v = (4 / 3) * Math.PI * Math.pow(r, 3);
+
+            // Display the calculated volume rounded to four decimal places
+            volume.value = v.toFixed(4);
+
+            return false; // Prevent form submission
+        }
+
+window.onload = document.getElementById('MyForm').onsubmit = volume_sphere;
+
+    </script>
+</body>
+</html>
