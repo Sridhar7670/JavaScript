@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .grand-parent{
+        background-color: blue;
+        padding:2rem;
+    }
+    .parent{
+        background-color: red;
+        padding: 2rem;
+    }
+    .child{
+        background-color: green;
+        padding: 1rem;
+    }
+
+    /* event bubling is from child to parent and then to grand parent this is how it 
+    works when thesre is event listner to all the g-p p and child */
+</style>
+<body>
+    <div class="grand-parent" >
+        <div class="parent" >
+            <div class="child" >
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let child= document.querySelector(".child");
+    console.log(child)
+    child.addEventListener('click',(event)=>{
+        console.log("child");
+        //event.stopPropagation();
+    },false //f3
+    )
+    let parent= document.querySelector(".parent");
+    console.log(parent)
+    parent.addEventListener('click',(event)=>{
+   // event.stopPropagation();
+   console.log("parent")
+    },true //f2
+    )
+    let gp = document.querySelector(".grand-parent");
+    console.log(gp);
+    gp.addEventListener('click',(event)=>{
+        console.log("grand-parent")
+        //event.stopPropagation()
+    },false  //f1  
+);
+
+    // add event listner accepts 3 values they are type,listner,optinals
+    // false will be treated as default true will be treated as event capturing
+    
+ /*   g-p false 
+      p-false
+      ch-false
+    when clicked on child output is child parent g-p
+
+    f3-> executes
+    f2- executes
+    f1- executes
+
+    g-p false 
+    p-true
+    ch-false
+    when clicked on child output is parent child  g-p
+
+    f3-> captuirng f2-> executing 
+    f2-> capuring f3-> executes 
+    f3-> capturing failed also executing f2-> capturing and excutin failed
+    f1-> executes is this true
+
+    g-p true 
+    p-true
+    ch-true
+
+    when clicked on child output is g-p parent child 
+    
+    f3-> captures -> f2-> captures -> f1 executes
+    f2-. executes -> f3-> waits 
+    f3- executes  
+
+*/
+
+</script>
+</html>
