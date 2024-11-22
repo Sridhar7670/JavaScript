@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+   <input type="text" name="event" id="keyboard">
+    <script>
+      let input=  document.getElementById("keyboard");
+      input.addEventListener("keydown", function(event) {
+        console.log(event);
+      })
+
+      input.addEventListener("keyup", function(event) {
+        console.log(event);
+      })
+    </script> 
+    -->
+    
+    <textarea name="some_comments" id="code" style="width: 150px; height: 150px;"></textarea>
+    <!-- <div id="heading" on>event bubling</div> -->
+
+<script>
+      let codeinput= document.getElementById("code");
+      let heading= document.getElementById("heading");
+      var fontSize=16;
+      codeinput.addEventListener('keydown', (event)=>{
+        if(fontSize>=32 || fontSize<=10){
+          return;
+        }
+          if(event.key=='a'&& event.ctrlKey){
+           fontSize+=2;
+           codeinput.style.fontSize = `${fontSize}px`;
+           console.log(fontSize); 
+          }
+          else if(event.key=='b'&& event.ctrlKey){
+            fontSize-=2;
+            codeinput.style.fontSize =`${fontSize}px`;
+            console.log(fontSize);
+          }
+      })
+
+      
+      // let fontS=12;
+      // heading.addEventListener('mouseenter', ()=>{
+      //   // heading.style.color='red';
+      //   heading.innerHTML="<b>event bubling</b>"
+      //   if(fonts==26){return;}
+      //    fontS +=2;
+      //   heading.style.fontSize = `${fontS}px`
+      // })
+
+      // heading.addEventListener('mouseleave', ()=>{
+      //   // heading.style.color='black';
+      //   if(fontS==10){return;}
+      //   heading.innerHTML="event bubling";
+      //   heading.style.fontSize=`${fontS}px`
+      // })
+        
+      
+</script>
+
+</body>
+</html>

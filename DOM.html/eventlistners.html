@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <span>hello</span>
+        <b>hello</b>
+        <button id="btn">click</button>
+    </div>
+    <script>
+        const button = document.querySelector("#btn");
+        let count = 0;
+
+        const click = () => {
+            console.log("1     " +count);
+            count++;
+            if (count === 3) {
+                button.removeEventListener("click", click);
+                console.log("removed event lesntner")
+            }
+        }
+
+        button.addEventListener("click", click);
+
+        // Uncomment this to add another event listener
+        // button.addEventListener("click", () => { console.log("2") });
+    </script>
+</body>
+</html>
