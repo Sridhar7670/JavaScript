@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    Question: Write a JavaScript function that takes an array of integers and shifts all
+     the zeroes to the end of the array while preserving the order of the non-zero 
+     elements but in reverse order. For example, given the input array 
+     [3,0,2,0,8,0,-1,-6], the function should return [0,0,0,8,3,2,-1,-6]
+    -->
+
+
+    <script>
+        function shiftZeroesToEnd(arr) {
+    // Your code here
+    let arr1=[];
+    let zeroCount=0;
+        for(i in arr)  //for(i=0;i<arr.length;i++)
+        {
+            if(arr[i]==0)
+            {
+                zeroCount++;
+            }
+            else
+            {
+                arr1.push(arr[i])
+            }
+            while(zeroCount>0)
+            {
+                arr1.unshift(0);
+                zeroCount--;
+            }
+        }
+        console.log(arr1);
+    }
+
+    // Example usage:
+    let arr = [3, 0, 2, 0, 8, 0, -1, -6];
+    shiftZeroesToEnd(arr);
+    
+    // Output: [0,0,0,8,3,2,-1,-6]
+
+    </script>
+</body>
+</html>

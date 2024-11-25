@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+    Question: Write a JavaScript function that takes an array of integers and shifts all 
+    the numbers in a specific order where all negative numbers come first in ascending 
+    order, followed by non-negative numbers in ascending order. For example, given the 
+    input array [5,-3,9,-10,2,12,-4], the function should return [-10,-4,-3,2,5,12,9]
+     -->
+
+
+    <script>
+        function rearrangeArray(arr) {
+        let posarr=[],negarr=[];
+
+        for(i in arr){
+            if(arr[i]>=0){
+                posarr.push(arr[i])
+            }
+            else{
+                negarr.push(arr[i])
+            }
+        }
+        console.log( negarr.concat(posarr))   
+        //if wanted reverse c.l.g(posarr.concat(negarr))   sort if needed to 
+          
+    }
+
+// Example usage:
+let arr = [5, -3, 9, -10, 2, 12, -4];
+rearrangeArray(arr)
+
+ // Output: [-10,-4,-3,2,5,12,9]
+
+    </script>
+</body>
+</html>
