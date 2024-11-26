@@ -19,40 +19,55 @@ const groceryStore = [
     { name: "Ground Beef", description: "Lean ground beef", price: 7.0 },
     { name: "Salmon", description: "Fresh Atlantic salmon fillet", price: 10.0 },
     { name: "Peanut Butter", description: "Creamy peanut butter", price: 3.5 },
-    { name: "Apple", description: "Crisp and are juicy red apples", price: 5.2 }
-    
+    { name: "Apple", description: "Crisp and juicy red apples", price: 5.2 }
 ];
-groceryStore.forEach((item)=>{
-    
-    let parent= document.querySelector(".parent")
 
-    let pro= document.createElement("div");
-    pro.className="product";
-    pro.id="products";
-    let title= document.createElement("b");
-    title.innerText=item.name;
-   
-    pro.append(title);
-    
-    console.log(pro);
-    
-    
+let parent = document.querySelector(".parent");
 
-    let description=document.createElement("span");
-    
-    description.innerText=item.description;
-    pro.append(description)
-    // console.log( description.innerText)
+parent.addEventListener("click", (e) => {
+    if (e.target.tagName === "BUTTON") {
+        console.log(groceryStore[e.target.id]);   //will return the total card items like title desc & price
+    }
+});
 
-    let price= document.createElement("span");
-    price.innerText=item.price;
-    pro.append(price);
-    
-    // console.log( price.innerText);
-    
-    
-    parent.append(pro);
-    
-    
-})
+function displayProducts(products) {
+    parent.innerHTML = '';  // Clear previous products
+    products.forEach((item, index) => {
+        let pro = document.createElement("div");
+        pro.className = "product";
+        pro.id = "products";
 
+        let title = document.createElement("b");
+        title.innerText = item.name;
+
+        let description = document.createElement("span");
+        description.innerText = item.description;
+
+        let price = document.createElement("span");
+        price.innerText = `$${item.price.toFixed(2)}`;
+
+        let button = document.createElement("button");
+        button.innerText = "Add";
+        button.id = index;
+
+        pro.append(title, description, price, button);
+        parent.append(pro);
+    });
+}
+
+function filterProducts(searchTerm) {
+    const filteredProducts= groceryStore.filter((item)=>{
+        // console.log( item.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        return item.name.toLowerCase().includes(searchTerm.toLowerCase())
+       
+    })
+    displayProducts(filteredProducts);
+}
+
+document.querySelector("#search").addEventListener("input", (e) => {
+    filterProducts(e.target.value);
+    // console.log(e.target.value)
+});
+
+// Initial display of all products
+displayProducts(groceryStore);
