@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width:2rem;
+        height: 2rem;
+        background-color: blue;
+
+    }
+    #container{
+        width: 6rem;
+        height: 26rem;
+        border:1px solid blue
+    }
+    #container.focused{
+        border:2px dotted blue;
+        transform: scale(1.03);
+    }
+</style>
+<body>
+    <div class="box" draggable="true"> </div>
+    <br>
+    <div id="container" dropzone="true"> </div>
+</body>
+<script>
+    let box= document.querySelector(".box");
+    let container= document.querySelector("#container");
+
+    // box.addEventListener('dragstart',()=>{console.log("drag startd")});
+    // box.addEventListener('dragend',()=>{console.log("drag ended"); });
+
+    container.addEventListener('dragenter',()=>{console.log("drag entered");
+        container.classList="focused";
+    });
+    container.addEventListener('dragover', (event)=>{event.preventDefault();
+        console.log("being dragged over")});
+        //event.preventDefault()--> in drag over disables drag leave 
+    container.addEventListener('dragleave',()=>{console.log("dragged is leaved ");
+    container.className="";
+    })
+    container.addEventListener('drop',()=>{console.log("dragged and dropped");
+    container.className="";
+    container.appendChild(box);
+    })
+</script>
+</html>
