@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+<!-- 
+
+The entire div for the Component should have a class of container.
+For the each photo being rendered as cards should have an class panel and text with 
+class img-text apart from the class each panel should have an id of panel-1 , panel-2 ... 
+depending on the number of the panel in rednering.
+For the css the class with active part should be rendered as expanding card and rest should be rendered as shrinked. as shown in the image.
+use CSS in active part to render the images expanded.
+i.e after clicking on any image card the particular card should be active class
+
+-->
+
+  <div class="g-p">
+    <div class="container">
+        <div id="panel-1" class="panel active show" onclick="active(event)"><span class="img-text">Explore the world</span></div>
+        <div id="panel-2" class="panel" onclick="active(event)"><span class="img-text">Wild Forest</span></div>
+        <div id="panel-3" class="panel" onclick="active(event)"><span class="img-text">City on Winter</span></div>
+        <div id="panel-4" class="panel" onclick="active(event)"><span class="img-text">Mountain Cloud</span></div>
+        <div id="panel-5" class="panel" onclick="active(event)"><span class="img-text">Sunny Beach</span></div>
+    </div>
+  </div>
+</body>
+</html>
+
+</body>
+</html>
