@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Size : height and width</title>
+</head>
+<body>
+<!-- 
+
+Instructions
+The size should be in an <h1> tag with the string as Width: x and Height: y.
+This <h1> tag should be inside a div with id sizeInfo, any other id will result
+in the failure of tests
+
+-->
+
+	<div id="sizeInfo"></div>
+
+
+    <script>
+    let h1 = document.createElement("h1");
+    let sizeInfo=document.querySelector("#sizeInfo");
+    sizeInfo.append(h1);
+
+
+    const screenratio = () => { 
+        let x=window.innerWidth;
+        let y= window.innerHeight;
+      h1.innerHTML = "Width: " + x + "height: " +y;
+    }
+    document.addEventListener("DOMContentLoaded", screenratio());
+    window.addEventListener("resize", screenratio);
+    </script>
+</body>
+</html>
